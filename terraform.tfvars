@@ -1,0 +1,12 @@
+vpc_id              = "VPC-ID"
+instance_type       = "t2.medium"
+minsize             = 1
+maxsize             = 1
+public_subnets     = ["Priv OR PUB", "Priv OR PUB", "Priv OR PUB"] # Service Subnet Priv OR PUB
+elb_public_subnets = ["Priv OR PUB", "Priv OR PUB", "Priv OR PUB"] # ELB Subnet Priv OR PUB
+tier = "WebServer"
+solution_stack_name= "64bit Amazon Linux 2 v3.7.2 running Docker"
+iam_instance_profile = "EC2-Your-Role"
+load_balancer_type = "network or application"
+root_volume_type = "gp2 or gp3"
+root_volume_size = "20 or 100 or whatever else you want"
