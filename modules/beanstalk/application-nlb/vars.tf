@@ -2,6 +2,10 @@ variable "application_env" {
   type = map(string)
 }
 
+variable "create_application" {
+  default = true
+}
+
 variable "tier" {}
 variable "vpc_id" {}
 variable "minsize" {}

@@ -1,14 +1,24 @@
 data "aws_elastic_beanstalk_hosted_zone" "current" {}
 
+#---------------------------------------- APP ADN ENV CONFIGURATION --------------------------------------------#
+
+# Create elastic beanstalk application
+
 resource "aws_elastic_beanstalk_application" "elasticapp" {
+  count = var.create_application ? 1 : 0
   name = var.elasticapp
+}
+
+data "aws_elastic_beanstalk_application" "elasticapp" {
+  count = !var.create_application ? 1 : 0
+  name  = var.elasticapp
 }
 
 # Create elastic beanstalk Environment
 
 resource "aws_elastic_beanstalk_environment" "beanstalkappenv" {
   name                = var.beanstalkappenv
-  application         = aws_elastic_beanstalk_application.elasticapp.name
+  application         = var.create_application ? aws_elastic_beanstalk_application.elasticapp[0].name : data.aws_elastic_beanstalk_application.elasticapp[0].name
   solution_stack_name = var.solution_stack_name
   tier                = var.tier
 
