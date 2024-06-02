@@ -7,6 +7,10 @@ variable "application_env" {
   }
 }
 
+variable "create_application" {
+  default = true
+}
+
 variable "tier" {}
 variable "vpc_id" {}
 variable "minsize" {}

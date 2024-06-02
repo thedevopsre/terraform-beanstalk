@@ -2,6 +2,7 @@ module "beanstalk" {
 
   source = "../modules/beanstalk/network-nlb"
 
+  create_application        = false
   tier                      = var.tier
   vpc_id                    = var.vpc_id
   minsize                   = var.minsize
