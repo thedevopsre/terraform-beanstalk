@@ -1,7 +1,8 @@
 module "beanstalk" {
 
-  source = "../modules/beanstalk/application-nlb"
+  source = "../modules/beanstalk/application-alb"
 
+  create_application        = false
   tier                      = var.tier
   vpc_id                    = var.vpc_id
   minsize                   = var.minsize
